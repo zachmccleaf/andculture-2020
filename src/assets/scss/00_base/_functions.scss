@@ -1,0 +1,85 @@
+/*------------------------------------*\
+	FUNCTIONS
+\*------------------------------------*/
+
+// Color Functions
+// ------------------------------------
+
+@function get-color($palette: "primary", $color: "black") {
+    @return map-get(map-get($colors, $palette), $color);
+}
+
+@function get-color-primary($color: "black") {
+    @return get-color("primary", $color);
+}
+
+@function get-color-secondary($color: "blue") {
+    @return get-color("secondary", $color);
+}
+
+@function get-color-neutral($color: "light") {
+    @return get-color("neutral", $color);
+}
+
+@function get-color-buttons($color: "primary") {
+    @return get-color("buttons", $color);
+}
+
+@function get-color-background($color: "primary") {
+    @return get-color("background", $color);
+}
+
+@function get-color-accents($color: "accents") {
+    @return get-color("accents", $color);
+}
+
+// Font Functions
+// ------------------------------------
+
+@function get-font-size($size: "base") {
+    @if not map-has-key($font-sizes, $size) {
+        @return $size;
+    }
+
+    @return map-get($font-sizes, $size);
+}
+
+@function get-line-height($size: "base") {
+    @if not map-has-key($line-heights, $size) {
+        @return $size;
+    }
+
+    @return map-get($font-sizes, $size);
+}
+
+@function get-heading-size($priority: "h1") {
+    @if not map-has-key($heading-sizes, $priority) {
+        @return $size;
+    }
+    @return map-get($heading-sizes, $priority);
+}
+// REM
+// ------------------------------------
+
+@function strip-unit($number) {
+    @if type-of($number) == "number" and not unitless($number) {
+        @return $number / ($number * 0 + 1);
+    }
+
+    @return $number;
+}
+
+// REM Functions
+// ------------------------------------
+
+@function rem($px, $baseValue: 16px) {
+    @if not unitless($px) {
+        $px: strip-unit($px);
+    }
+
+    @if not unitless($baseValue) {
+        $baseValue: strip-unit($baseValue);
+    }
+
+    @return ($px / $baseValue) * 1rem;
+}

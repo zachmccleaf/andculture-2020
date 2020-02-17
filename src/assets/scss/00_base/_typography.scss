@@ -1,0 +1,104 @@
+body {
+    font-family: $font-primary;
+    font-weight: 300;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+h1, 
+h2, 
+h3, 
+h4, 
+h5, 
+h6 {
+    font-weight: 200;
+    margin: 0;
+}
+
+h1 {
+    @include font-size(44px); 
+    @include line-height(48px); 
+    color: get-color("neutral", "gray"); 
+
+    @include breakpoints("tablet") {
+        @include font-size(85px); 
+        @include line-height(100px); 
+    }
+}
+
+h2 {
+    @include font-size("medium-large"); 
+    @include line-height("medium-small"); 
+    color: get-color("neutral", "gray"); 
+
+    @include breakpoints("tablet") {
+        @include font-size("larger"); 
+        @include line-height("larger"); 
+    }
+}
+
+h3 {
+    @include font-size("small"); 
+    @include line-height("smaller"); 
+    color: get-color("neutral", "light-gray"); 
+
+    @include breakpoints("tablet") {
+        @include font-size("medium-large"); 
+        @include line-height("medium-large"); 
+    }
+}
+
+h4 {
+    @include font-size("medium"); 
+    @include line-height("small"); 
+    color: get-color("primary", "fresh"); 
+
+    @include breakpoints("tablet") {
+        @include font-size("large"); 
+        @include line-height("large"); 
+    }
+}
+
+h5 {
+    @include font-size("smaller"); 
+    @include line-height("smallest"); 
+    color: get-color("neutral", "light-gray"); 
+
+    @include breakpoints("tablet") {
+        @include font-size("medium-small"); 
+        @include line-height("small"); 
+    }
+}
+
+h6 {
+    @include font-size("smallest"); 
+    @include line-height("base"); 
+    color: get-color("primary", "after-hours"); 
+    font-family: $font-secondary; 
+    text-transform: uppercase;
+    font-weight: 500;
+
+    @include breakpoints("tablet") {
+        @include font-size("base"); 
+        @include line-height("smaller"); 
+    }
+}
+
+p {
+    @include font-size("base"); 
+    @include line-height("smaller"); 
+    color: get-color("neutral", "medium-gray"); 
+
+    @include breakpoints("tablet") {
+        @include font-size("small"); 
+        @include line-height("small"); 
+    }
+}
+
+a {
+    @include font-size("medium-large"); 
+    font-family: $font-secondary;
+    letter-spacing: .05em;
+    font-weight: 500;
+    text-decoration: none;
+}
